@@ -50,6 +50,9 @@ export const SingleTeacher = ()=>{
     var month = date.getMonth() + 1;
     var year = date.getFullYear();
 
+
+    console.log(createdAt)
+
     return(
         <>
             <Navbar/>
@@ -121,7 +124,7 @@ export const SingleTeacher = ()=>{
                 </div>
                 <div id="single-student-info-section">
                     <div>
-                        <Link to={`/edit/${_id}`}><ion-icon name="create-outline" x={"Hello"} ></ion-icon></Link>
+                        <Link to={`/teacher/edit/${_id}`}><ion-icon name="create-outline" x={"Hello"} ></ion-icon></Link>
                         <DeleteModal 
                             deleteFun={deleteTeacherRecord}
                             name={"teacher"}

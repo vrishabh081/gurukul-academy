@@ -1,43 +1,42 @@
 import { useEffect, useState } from "react";
 import "../style/addmissionForm.css";
-import { getAllStudentsData, getSingleStudentsData, postStudentData, updateStudentData } from "../redux/app/action";
 import { useDispatch, useSelector } from "react-redux";
 import {useNavigate, useParams} from "react-router-dom";
 import { Navbar } from "../components/navbar";
+import { getAllTeachersData, getSingleTeachersData, updateTeacherData } from "../redux/app/teachers/action";
 
-export const EditAddmissionForm = ()=>{
+export const EditTeacherForm = ()=>{
+
     const {_id} = useParams();
-    console.log(_id);
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
     // getting data-
     useEffect(()=>{
-        dispatch(getSingleStudentsData(_id));
+        dispatch(getSingleTeachersData(_id));
     }, [])
 
-    // single student data with dispatch-
-    const data = useSelector((store)=>store.appReducer);
-    const {isLoading, singleStudentData, isError} = data;
+    // single teacher data with dispatch-
+    const data = useSelector((store)=>store.teacherReducer);
+    const {isLoading, singleTeacherData, isError} = data;
 
     // console.log(data);
 
     // student data-
-    const {studentName, studentPhoto, studentClass, studentAdhaarCard, dob, fatherName, 
-        motherName, parentAdhaarCard, parentOccupation, address, mobileNumber1, mobileNumber2,
-    } = singleStudentData;
+    const {teacherName, teacherPhoto, teacherQualification, teacherAdhaarCard, dob, experience, fatherName, 
+        motherName, address, mobileNumber1, mobileNumber2,
+    } = singleTeacherData;
 
     // students-
-    const [studentNameEdit, setStudentNameEdit] = useState("");
+    const [teacherNameEdit, setTeacherNameEdit] = useState("");
     const [dobEdit, setDobEdit] = useState("");
-    const [studentAdhaarCardEdit, setStudentAdhaarCardEdit] = useState("");
-    const [studentClassEdit, setStudentClassEdit] = useState("");
+    const [teacherAdhaarCardEdit, setTeacherAdhaarCardEdit] = useState("");
+    const [teacherQualificationEdit, setTeacherQualificationEdit] = useState("");
+    const [experienceEdit, setExperienceEdit] = useState("");
 
     // parents-
     const [fatherNameEdit, setFatherNameEdit] = useState("");
     const [motherNameEdit, setMotherNameEdit] = useState("");
-    const [parentAdhaarCardEdit, setParentAdhaarCardEdit] = useState("");
-    const [parentOccupationEdit, setParentOccupationEdit] = useState("");
     const [mobileNumber1Edit, setMobileNumber1Edit] = useState("");
     const [mobileNumber2Edit, setMobileNumber2Edit] = useState("");
     const [addressEdit, setAddressEdit] = useState("");
@@ -48,22 +47,21 @@ export const EditAddmissionForm = ()=>{
 
         // payload-
         let payload = {
-            studentNameEdit : studentNameEdit || studentName,
+            teacherNameEdit : teacherNameEdit || teacherName,
             dobEdit : dobEdit || dob,
-            studentAdhaarCardEdit : studentAdhaarCardEdit || studentAdhaarCard,
-            studentClassEdit : studentClassEdit || studentClass,
+            teacherAdhaarCardEdit : teacherAdhaarCardEdit || teacherAdhaarCard,
+            teacherQualificationEdit : teacherQualificationEdit || teacherQualification,
+            experienceEdit : experienceEdit || experience,
             fatherNameEdit : fatherNameEdit || fatherName,
             motherNameEdit : motherNameEdit || motherName,
-            parentAdhaarCardEdit : parentAdhaarCardEdit || parentAdhaarCard,
-            parentOccupationEdit : parentOccupationEdit || parentOccupation,
             mobileNumber1Edit : mobileNumber1Edit || mobileNumber1,
             mobileNumber2Edit : mobileNumber2Edit || mobileNumber2,
             addressEdit : addressEdit || address
         }
-        dispatch(updateStudentData(payload, _id)).then(()=>{
-            dispatch(getAllStudentsData())
+        dispatch(updateTeacherData(payload, _id)).then(()=>{
+            dispatch(getAllTeachersData())
             alert("Successfully Updated");
-            navigate("/student");
+            navigate("/teacher");
         });
     }
 
@@ -79,50 +77,58 @@ export const EditAddmissionForm = ()=>{
         <>
             <Navbar/>
                 <div id="admission-form-main-div">
-                <h1>Edit Addmission Form</h1>
+                <h1>Edit Teacher Form</h1>
                 <form id="addmission-form">
                     
-                    {/* students details */}
-                    <h3>Student's Details -</h3>
+                    {/* teacher details */}
+                    <h3>Teacher's Details -</h3>
                     <div className="details">
                         <div>
                             <div className="image-select">
-                                <img src={studentPhoto} id="output" alt="" />
-                                {/* <input type="file" accept="image/*" onChange={(e)=> {loadfile(e); setStudentPhotoEdit(e.target.files[0])}} /> */}
+                                <img src={teacherPhoto} id="output" alt="" />
+                                {/* <input type="file" accept="image/*" onChange={(e)=> {loadfile(e); setteacherPhotoEdit(e.target.files[0])}} /> */}
                             </div>
                             <div>
-                                {/* student name */}
+                                {/* teacher name */}
                                 <div>
                                     <label>Name</label>
-                                    <input type="text" placeholder="Type Student Name" value={studentNameEdit || studentName} onChange={(e)=>setStudentNameEdit(e.target.value)} />
+                                    <input type="text" placeholder="Type Teacher Name" value={teacherNameEdit || teacherName} onChange={(e)=>setTeacherNameEdit(e.target.value)} />
                                 </div>
 
-                                {/* student dob */}
+                                {/* teacher dob */}
                                 <div>
                                     <label>Date Of Birth</label>
                                     <input type="date" value={dobEdit || dob} onChange={(e)=>setDobEdit(e.target.value)} />
                                 </div>
 
-                                {/* student adhaar card */}
+                                {/* teacher adhaar card */}
                                 <div>
                                     <label>Adhaar Card</label>
-                                    <input type="tel" maxLength={12} value={studentAdhaarCardEdit || studentAdhaarCard} placeholder="Type Student's Adhaar Card" onChange={(e)=>setStudentAdhaarCardEdit(e.target.value)} />
+                                    <input type="tel" maxLength={12} value={teacherAdhaarCardEdit || teacherAdhaarCard} placeholder="Type Teacher's Adhaar Card" onChange={(e)=>setTeacherAdhaarCardEdit(e.target.value)} />
                                 </div>
 
-                                {/* class */}
+                                {/* qualification */}
                                 <div>
                                     <label>Class</label>
-                                    <select name="" value={studentClassEdit || studentClass} onChange={(e)=>setStudentClassEdit(e.target.value)}>
-                                        <option value="">Class</option>
-                                        <option value="PG">PG</option>
-                                        <option value="LKG">LKG</option>
-                                        <option value="UKG">UKG</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
+                                    <select name="" value={teacherQualificationEdit || teacherQualification} onChange={(e)=>setTeacherQualificationEdit(e.target.value)}>
+                                        <option value="">Qualification</option>
+                                        <option value="12th">12th</option>
+                                        <option value="B.A.">B.A.</option>
+                                        <option value="B.Sc.">B.Sc.</option>
+                                        <option value="B.Com.">B.Com.</option>
+                                        <option value="B.Ed.">B.Ed.</option>
+                                        <option value="B.Tech.">B.Tech.</option>
+                                        <option value="M.A.">M.A.</option>
+                                        <option value="M.Sc.">M.Sc.</option>
+                                        <option value="M.Com.">M.Com.</option>
+                                        <option value="M.Tech.">M.Tech.</option>
                                     </select>
+                                </div>
+
+                                {/* experience */}
+                                <div>
+                                    <label>Experience</label>
+                                    <input type="tel" maxLength={12} value={experienceEdit || experience} placeholder="Type Teacher's Adhaar Card" onChange={(e)=>setExperienceEdit(e.target.value)} />
                                 </div>
                             </div>
                         </div>
@@ -143,18 +149,6 @@ export const EditAddmissionForm = ()=>{
                                 <div>
                                     <label>Mother's Name</label>
                                     <input type="text" value={motherNameEdit || motherName} placeholder="Type Mother's Name" onChange={(e)=>setMotherNameEdit(e.target.value)} />
-                                </div>
-
-                                {/* parent adhaar card */}
-                                <div>
-                                    <label>Adhaar Card</label>
-                                    <input type="text" value={parentAdhaarCardEdit || parentAdhaarCard} maxLength={12} placeholder="Type Parents's Adhhaar Card" onChange={(e)=>setParentAdhaarCardEdit(e.target.value)} />
-                                </div>
-
-                                {/* occupation */}
-                                <div>
-                                    <label>Occupation</label>
-                                    <input type="text" value={parentOccupationEdit || parentOccupation} placeholder="Type Occupation" onChange={(e)=>setParentOccupationEdit(e.target.value)} />
                                 </div>
                             </div>
                         </div>
@@ -185,7 +179,6 @@ export const EditAddmissionForm = ()=>{
                             </div>
                         </div>
                     </div>
-
                     <input type="submit" id="form-btn" onClick={(e)=>updateSubmitHandler(e)} value={isLoading === true ? "Wait..." : "Update"} />
                 </form>
             </div>

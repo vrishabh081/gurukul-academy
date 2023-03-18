@@ -6,6 +6,7 @@ const cors = require("cors");
 const studentRoutes = require("./routes/addmissionForm");
 const accessoriesRoutes = require("./routes/accessories");
 const authRoutes = require("./routes/auth");
+const teacherRoutes = require("./routes/teachers");
 
 // middleware-
 app.use(cors())
@@ -13,6 +14,7 @@ app.use(express.json())
 
 // routes-
 app.use("/api/v1/student", studentRoutes);
+app.use("/api/v1/teacher", teacherRoutes);
 app.use("/api/v1/accessory", accessoriesRoutes);
 app.use("/api/v1/auth", authRoutes);
 

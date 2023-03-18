@@ -113,7 +113,7 @@ export const SingleStudent = ()=>{
                 </div>
                 <div id="single-student-info-section">
                     <div>
-                        <Link to={`/edit/${_id}`}><ion-icon name="create-outline" x={"Hello"} ></ion-icon></Link>
+                        <Link to={`/student/edit/${_id}`}><ion-icon name="create-outline" x={"Hello"} ></ion-icon></Link>
                         <DeleteModal 
                             deleteFun={deleteStudentRecord}
                             name={"student"}

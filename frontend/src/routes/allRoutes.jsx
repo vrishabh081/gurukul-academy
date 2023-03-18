@@ -6,6 +6,7 @@ import { Accessories } from "../pages/accessories";
 import { AddmissionForm } from "../pages/addmissionForm";
 import { TeacherForm } from "../pages/addTeacher";
 import { EditAddmissionForm } from "../pages/editAddmissionForm";
+import { EditTeacherForm } from "../pages/editTeacherForm";
 import { ForgetPassword } from "../pages/forgetPassword";
 import { Home } from "../pages/home";
 import { Notifications } from "../pages/notifications";
@@ -22,12 +23,13 @@ export const AllRoutes = ()=>{
             <Route path={"/student"} element = {<Student/>} />
             <Route path={"/student/:_id"} element = {<SingleStudent/>} />
             <Route path={"/addmission"} element = {<AddmissionForm/>} />
-            <Route path={"/edit/:_id"} element = {<EditAddmissionForm/>} />
+            <Route path={"/student/edit/:_id"} element = {<EditAddmissionForm/>} />
             
             {/* teachers */}
             <Route path={"/teacher"} element = {<Teacher/>} />
             <Route path={"/teacher/:_id"} element = {<SingleTeacher/>} />
             <Route path={"/teacher-form"} element = {<TeacherForm/>} />
+            <Route path={"/teacher/edit/:_id"} element = {<EditTeacherForm/>} />
 
             <Route path={"/accessories"} element = {<Accessories/>} />
             <Route path={"/add-accessories"} element = {<AddAccesories/>} />
