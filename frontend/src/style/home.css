@@ -1,0 +1,237 @@
+#home{
+    overflow: hidden;
+}
+#home>div{
+    margin-bottom: 3rem;
+}
+
+/* home-page-heading */
+#home-page-heading{
+    text-align: center;
+}
+
+/* Banner Section */
+#banner{
+    width: 100%;
+}
+#banner img{
+    width: 100%;
+}
+
+
+/* Sir Section */
+#sir{
+    margin: 0;
+    padding: 0;
+}
+#sir-section{
+    max-width: 768px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: #fff;
+    margin: 2rem auto 3rem auto;
+    padding: 1rem;
+    /* border: 1px solid; */
+}
+#sir-section>div:nth-child(1){
+    width: 40%;
+}
+#sir-section>div:nth-child(2){
+    width: 55%;
+}
+#sir-section>div:nth-child(1)>img{
+    width: 15rem;
+}
+#sir-section>div:nth-child(2)>p:nth-child(1){
+    margin: 1.2rem auto;
+}
+#sir-section>div:nth-child(2)>p:nth-child(1)>span:nth-child(1){
+    font-size: 24px;
+    font-weight: 700;
+}
+#sir-section>div:nth-child(2)>p:nth-child(1)>span:nth-child(2){
+    font-size: 24px;
+    font-weight: 700;
+    background: -webkit-linear-gradient(#060eb9, #fa00dc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.info-title{
+    font-weight: 600;
+    font-size: 18px;
+}
+#sir-section>div:nth-child(2)>p{
+    margin: 1rem auto;
+}
+
+
+/* Cards */
+#card{
+    display: flex;
+    justify-content: space-between;
+}
+#card>div{
+    width: 100%;
+}
+#card>div img{
+    width: 100%;
+}
+
+
+/* Class photo */
+#classes{
+    margin: auto;
+}
+#class-photo{
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: #fff;
+}
+#class-photo>div{
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: #fff;
+    margin: auto;
+    width: 24rem;
+}
+#class-photo>div img{
+    border-radius: 1rem;
+    width: 100%;
+}
+
+
+/* Contact Us */
+#contact-us{
+    /* border: 1px solid; */
+    max-width: 768px;
+    margin: auto;
+}
+#contact-us>div{
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: #fff;
+}
+#contact-form>div{
+    display: flex;
+    justify-content: space-between;
+}
+#contact-form>div>label{
+    display: inline-flex;
+}
+#contact-form>div{
+    margin: 1rem 0;
+}
+#contact-form>div>input, #contact-form>div>textarea{
+    padding: 0.6rem 0.3rem;
+    border-radius: 0.5rem;
+    border: 1px solid #888;
+    width: 60%;
+}
+#contact-form button{
+    margin-top: 1rem;
+}
+#contact-form>div>textarea::placeholder{
+    font-size: 1rem;
+}
+
+
+@media screen and (max-width: 768px) {
+
+    /* Sir */
+    #sir-section{
+        display: block;
+        margin: 2rem 1rem 3rem 1rem;
+    }
+    #sir-section>div:nth-child(1)>img{
+        width: 15rem;
+        display: block;
+        margin: auto;
+    }
+    #sir-section>div:nth-child(1){
+        width: 100%;
+    }
+    #sir-section>div:nth-child(2){
+        width: 100%;
+    }
+
+    #sir-section>div:nth-child(2)>p, #sir-section>div:nth-child(2)>p:nth-child(1){
+        margin: 1rem 2rem;
+    }
+
+    #sir-section>div:nth-child(2)>p:nth-child(1)>span:nth-child(1){
+        font-size: 24px;
+    }
+    #sir-section>div:nth-child(2)>p:nth-child(1)>span:nth-child(2){
+        font-size: 24px;
+    }
+    .info-title{
+        font-size: 18px;
+    }
+
+    /* Cards */
+    #card{
+        display: block;
+    }
+
+    /* Contact Us */
+    #contact-form>div{
+        display: block;   
+        /* border: 1px solid;  */
+        margin: 0;
+        padding: 0;
+    }
+    #contact-form>div>label{
+        display: block;
+        margin: 1rem 0;
+        padding: 0;
+    }
+    #contact-form>div>input, #contact-form>div>textarea{
+        width: 98%;
+    }
+
+    /* Contact */
+    #contact-form button{
+        margin-top: 1rem;
+    }
+}
+
+
+@media screen and (max-width: 480px) {
+    #sir-section>div:nth-child(2)>p, #sir-section>div:nth-child(2)>p:nth-child(1){
+        margin: 1rem auto;
+    }
+
+    #sir-section>div:nth-child(2)>p:nth-child(1)>span:nth-child(1){
+        font-size: 18px;
+    }
+    #sir-section>div:nth-child(2)>p:nth-child(1)>span:nth-child(2){
+        font-size: 18px;
+    }
+    .info-title{
+        font-size: 16px;
+    }
+
+    /* contact */
+    #contact-form>div>input, #contact-form>div>textarea{
+        width: 96%;
+    }
+    #contact-form button{
+        margin-top: 1rem;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    #sir-section>div:nth-child(1)>img{
+        width: 100%;
+    }
+}

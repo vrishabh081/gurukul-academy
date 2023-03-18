@@ -1,0 +1,25 @@
+#notification>div{
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: #fff;
+    max-width: 700px;
+    margin: 1rem auto;
+    padding: 1rem;
+}
+#notification>div p{
+    margin: 0.7rem 0;
+}
+#notification>div span{
+    font-weight: 600;
+}
+#notification div:nth-child(1){
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+    #notification{
+        margin: 0.8rem;
+    }
+}
