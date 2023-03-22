@@ -106,6 +106,13 @@ export const Home = ()=>{
                     <ContactUs/>
                 </div>
             </div>
+            <div id="fix-contact-options">
+                <a href="tel:+919794494076">
+                    <ion-icon name="call-outline"></ion-icon>                </a>
+                <a href="https://wa.me/917054402218">
+                    <ion-icon name="logo-whatsapp"></ion-icon>
+                </a>
+            </div>
         </>
     )
 }

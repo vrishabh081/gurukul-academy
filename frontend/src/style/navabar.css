@@ -12,9 +12,9 @@
 #navbar{
     display: flex;
     background-color: white;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    padding: 0.2rem 1rem;
+    padding: 0.2rem 2.5rem;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 #left-section{
@@ -62,7 +62,7 @@
     justify-content: space-between;
     align-items: center;
     height: 2.8rem;
-    padding: 0rem 1rem;
+    padding: 0rem 3rem;
 }
 
 /* hamburger */

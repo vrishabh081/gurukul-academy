@@ -28,7 +28,7 @@
     max-width: 768px;
     display: flex;
     justify-content: space-between;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     background-color: #fff;
     margin: 2rem auto 3rem auto;
@@ -90,20 +90,20 @@
     flex-wrap: wrap;
     padding: 1rem;
     margin: 1rem;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     background-color: #fff;
 }
 #class-photo>div{
     padding: 1rem;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     background-color: #fff;
     margin: auto;
     width: 24rem;
 }
 #class-photo>div img{
-    border-radius: 1rem;
+    border-radius: 0;
     width: 100%;
 }
 
@@ -117,7 +117,7 @@
 #contact-us>div{
     margin: 1rem;
     padding: 1rem;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     background-color: #fff;
 }
@@ -143,6 +143,21 @@
 #contact-form>div>textarea::placeholder{
     font-size: 1rem;
 }
+#fix-contact-options>a{
+    position: fixed;
+    bottom: 4rem;
+}
+#fix-contact-options ion-icon{
+    font-size: 2.5rem;
+}
+#fix-contact-options>a:nth-child(1){
+    left: 2rem;
+}
+#fix-contact-options>a:nth-child(2){
+    right: 2rem;
+}
+
+
 
 
 @media screen and (max-width: 768px) {
@@ -227,6 +242,14 @@
     }
     #contact-form button{
         margin-top: 1rem;
+    }
+
+    /* fix contact form */
+    #fix-contact-options>a{
+        bottom: 3rem;
+    }
+    #fix-contact-options ion-icon{
+        font-size: 2.2rem;
     }
 }
 
